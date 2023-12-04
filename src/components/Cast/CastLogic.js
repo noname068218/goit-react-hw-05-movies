@@ -13,6 +13,7 @@ export const useCast = () => {
         setIsLoading(true);
 
         const fetchedDescription = await fetchActors(movieId);
+        console.log(fetchedDescription);
 
         setCast(fetchedDescription);
       } catch (error) {

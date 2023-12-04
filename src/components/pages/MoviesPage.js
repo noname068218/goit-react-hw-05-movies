@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { fetchMoviesByQuery } from '../Api/api';
 import { Link } from 'react-router-dom';
-import { useSearchParams } from 'react-router-dom';
 
-export default function MoviePage() {
-  const [query, setQuery] = useState(''); // Стан для збереження рядка запиту
-  const [movies, setMovies] = useState([]); // Стан для збереження результатів запиту
+const MoviePage = () => {
+  const [query, setQuery] = useState('');
+  const [movies, setMovies] = useState([]);
 
   const handleSearch = async () => {
     try {
@@ -29,7 +29,8 @@ export default function MoviePage() {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <Link to={'movies/' + movie.id}>
+            {/* Use Link to navigate to MovieDetails page with movieId as a parameter */}
+            <Link to={`/movies/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                 alt={movie.title}
@@ -40,4 +41,6 @@ export default function MoviePage() {
       </ul>
     </div>
   );
-}
+};
+
+export default MoviePage;

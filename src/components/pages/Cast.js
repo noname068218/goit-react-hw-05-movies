@@ -12,7 +12,7 @@ export default function Cast() {
           {cast.map(casts => (
             <li key={casts.id}>
               <img
-                src={`https://image.tmdb.org/t/p/original${casts.profile_path}`}
+                src={`https://image.tmdb.org/t/p/w300${casts.profile_path}`}
                 alt={casts.name}
               />
               <p>{casts.character}</p>

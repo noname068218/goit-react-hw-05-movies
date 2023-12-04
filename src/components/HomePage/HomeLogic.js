@@ -1,4 +1,3 @@
-// HomePageLogic.js
 import { useState, useEffect } from 'react';
 import { fetchTrendingMovies } from '../Api/api';
 
