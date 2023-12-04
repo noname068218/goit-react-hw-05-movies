@@ -1,14 +1,15 @@
 import { Link, Outlet } from 'react-router-dom';
 import { Loader } from '../Animations/LoadingSpiner';
-import { MovieDetailsLogic } from '../MovieDetalis/MovieDetailsLogic';
+import { useDataFetching } from 'components/hooks';
 import { FilmCard } from 'components/MovieDetalis/MovieDetails.style';
 
 const MovieDetails = () => {
-  const { isLoading, movieDetails } = MovieDetailsLogic();
+  const { data: movieDetails, isLoading: isMovieDetailsLoading } =
+    useDataFetching('movieDetails');
 
   return (
     <div>
-      {isLoading ? (
+      {isMovieDetailsLoading ? (
         <Loader />
       ) : (
         <div>

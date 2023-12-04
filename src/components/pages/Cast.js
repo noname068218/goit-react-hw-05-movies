@@ -1,11 +1,9 @@
-import { useCast } from 'components/Cast/CastLogic';
-
+import { useDataFetching } from 'components/hooks';
 export default function Cast() {
-  const { isLoading, cast } = useCast();
-
+  const { data: cast, isLoading: isCastLoading } = useDataFetching('actors');
   return (
     <div>
-      {isLoading ? (
+      {isCastLoading ? (
         <p>Loading...</p>
       ) : (
         <ul>

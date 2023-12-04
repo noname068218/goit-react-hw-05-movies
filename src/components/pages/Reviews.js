@@ -1,7 +1,6 @@
-import { useReviews } from 'components/Reviews/ReviewLogic';
-
+import { useDataFetching } from 'components/hooks';
 export default function Reviews() {
-  const { isLoading, reviews } = useReviews();
+  const { data: reviews, isLoading } = useDataFetching('reviews');
 
   return (
     <div>
