@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { fetchMoviesByQuery } from 'components/Api/api';
 import { useSearchParams } from 'react-router-dom';
+
+// ... (imports)
 
 // ... (imports)
 
@@ -9,14 +11,14 @@ export const useMoviePageLogic = () => {
   const query = searchParams.get('query') || '';
   const [movies, setMovies] = useState([]);
 
-  const handleSearch = async () => {
+  const handleSearch = useCallback(async () => {
     try {
       const fetchedMovies = await fetchMoviesByQuery(query);
       setMovies(fetchedMovies);
     } catch (error) {
       console.error('Error fetching movies:', error);
     }
-  };
+  }, [query]);
 
   useEffect(() => {
     handleSearch();
