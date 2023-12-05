@@ -9,10 +9,14 @@ export default function Cast() {
         <ul>
           {cast.map(casts => (
             <li key={casts.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w300${casts.profile_path}`}
-                alt={casts.name}
-              />
+              {casts.profile_path ? (
+                <img
+                  src={`https://image.tmdb.org/t/p/w300${casts.profile_path}`}
+                  alt={casts.name}
+                />
+              ) : (
+                <span>No Image Available</span>
+              )}
               <p>{casts.character}</p>
             </li>
           ))}

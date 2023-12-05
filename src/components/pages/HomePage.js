@@ -15,11 +15,15 @@ export default function HomePage() {
 
             return (
               <li key={index}>
-                <Link to={'movies/' + movie.id}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                    alt={movie.title}
-                  />
+                <Link to={`/movies/${movie.id}`} state={{ from: '/' }}>
+                  {movie.backdrop_path ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                      alt={movie.title}
+                    />
+                  ) : (
+                    <span>No Image Available</span>
+                  )}
                 </Link>
               </li>
             );

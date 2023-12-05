@@ -1,20 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
-import { fetchMoviesByQuery } from '../Api/api';
 import { Link } from 'react-router-dom';
+import { useMoviePageLogic } from 'MovieSearchLogic/MovieSearch';
 
 const MoviePage = () => {
-  const [query, setQuery] = useState('');
-  const [movies, setMovies] = useState([]);
-
-  const handleSearch = async () => {
-    try {
-      const fetchedMovies = await fetchMoviesByQuery(query);
-      setMovies(fetchedMovies);
-    } catch (error) {
-      console.error('Error fetching movies:', error);
-    }
-  };
+  const { query, movies, handleInputChange, handleSearch } =
+    useMoviePageLogic();
 
   return (
     <div>
@@ -22,19 +12,25 @@ const MoviePage = () => {
       <input
         type="text"
         value={query}
-        onChange={e => setQuery(e.target.value)}
+        onChange={handleInputChange}
         placeholder="Enter movie title..."
       />
       <button onClick={handleSearch}>Search</button>
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            {/* Use Link to navigate to MovieDetails page with movieId as a parameter */}
-            <Link to={`/movies/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                alt={movie.title}
-              />
+            <Link
+              to={`/movies/${movie.id}`}
+              state={{ from: '/movies?query=' + query }}
+            >
+              {movie.backdrop_path ? (
+                <img
+                  src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                  alt={movie.title}
+                />
+              ) : (
+                <span>No Image Available</span>
+              )}
             </Link>
           </li>
         ))}
