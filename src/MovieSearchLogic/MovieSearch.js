@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { fetchMoviesByQuery } from 'components/Api/api';
 import { useSearchParams } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ export const useMoviePageLogic = () => {
   useEffect(() => {
     handleSearch();
   }, []);
-
+  useRef(handleSearch);
   const handleInputChange = e => {
     setSearchParams({ query: e.target.value });
   };
