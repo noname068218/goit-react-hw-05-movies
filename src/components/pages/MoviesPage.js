@@ -2,20 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useMoviePageLogic } from 'MovieSearchLogic/MovieSearch';
 
+import {
+  WraperContainer,
+  SearchInput,
+  Search,
+  BntSearch,
+} from 'components/PageStyle/Search.style';
+
 const MoviePage = () => {
   const { query, movies, handleInputChange, handleSearch } =
     useMoviePageLogic();
 
   return (
-    <div>
-      <h1>Movie Page</h1>
-      <input
-        type="text"
-        value={query}
-        onChange={handleInputChange}
-        placeholder="Enter movie title..."
-      />
-      <button onClick={handleSearch}>Search</button>
+    <WraperContainer>
+      <Search>
+        <SearchInput
+          type="text"
+          value={query}
+          onChange={handleInputChange}
+          placeholder="Enter movie title..."
+        />
+      </Search>
+      <BntSearch onClick={handleSearch}>Search</BntSearch>
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
@@ -35,7 +43,7 @@ const MoviePage = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </WraperContainer>
   );
 };
 

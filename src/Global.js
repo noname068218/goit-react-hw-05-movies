@@ -28,4 +28,7 @@ ul, li {
     max-width: 100%;
     object-fit: cover;
   }
+  a{
+    text-decoration: none;
+  }
 `;

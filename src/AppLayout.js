@@ -1,24 +1,33 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+
 import { GlobalStyle } from 'Global';
 import { Suspense } from 'react';
+import {
+  Container,
+  SliderMenu,
+  SliderMenuItem,
+  Header,
+  StyledLink,
+} from 'AppStyle';
+
 // import { useState } from 'react';
 // import { Loader } from 'components/Animations/LoadingSpiner';
 
 export const AppLayout = () => {
   return (
-    <div>
-      <header>
+    <Container>
+      <Header>
         <nav>
-          <ul>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/movies">Movie</NavLink>
-            </li>
-          </ul>
+          <SliderMenu>
+            <SliderMenuItem>
+              <StyledLink to="/">Home</StyledLink>
+            </SliderMenuItem>
+            <SliderMenuItem>
+              <StyledLink to="/movies">Movie</StyledLink>
+            </SliderMenuItem>
+          </SliderMenu>
         </nav>
-      </header>
+      </Header>
       <main>
         <Suspense fallback={<div>LOADING...</div>}>
           <Outlet />
@@ -26,7 +35,7 @@ export const AppLayout = () => {
       </main>
 
       <GlobalStyle />
-    </div>
+    </Container>
   );
 };
 // const [isLoading, setisLoading] = useState(false);
