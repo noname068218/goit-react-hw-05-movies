@@ -18,7 +18,7 @@ export const useMoviePageLogic = () => {
 
   useEffect(() => {
     handleSearch();
-  }, [handleSearch]);
+  }, []);
 
   const handleInputChange = e => {
     setSearchParams({ query: e.target.value });
