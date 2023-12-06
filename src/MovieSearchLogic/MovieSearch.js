@@ -15,11 +15,11 @@ export const useMoviePageLogic = () => {
       console.error('Error fetching movies:', error);
     }
   }, [query]);
-
+  const handleSearchRef = useRef(handleSearch);
   useEffect(() => {
-    handleSearch();
+    handleSearchRef.current();
   }, []);
-  useRef(handleSearch);
+
   const handleInputChange = e => {
     setSearchParams({ query: e.target.value });
   };
