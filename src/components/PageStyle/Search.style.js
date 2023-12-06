@@ -2,8 +2,44 @@ import styled from 'styled-components';
 
 export const Search = styled.div`
   position: relative;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
+`;
+
+export const ContainerListImage = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  margin: 0 -10px;
+`;
+
+export const Container = styled.div`
+  display: flex;
+`;
+
+export const List = styled.ul`
+  max-width: 25%;
+  list-style-type: none;
+  padding: 0;
+`;
+export const Listli = styled.li`
+  list-style-type: none;
+  flex-basis: calc(25% - 20px);
+  margin-bottom: 20px;
+`;
+export const ImageCard = styled.img`
+  object-fit: cover;
+  width: calc(50% - 10px);
+  height: 300px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -29,8 +65,8 @@ export const SearchInput = styled.input`
 
 export const BntSearch = styled.button`
   position: relative;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   margin-top: 30px;
   color: #090909;
   padding: 0.7em 1.7em;
