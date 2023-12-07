@@ -1,45 +1,30 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const Search = styled.div`
-  position: relative;
+export const MainBackground = styled.div`
+  width: 100%;
+  height: 100vh;
+`;
+
+export const VideoFrame = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+`;
+export const OverlayVideo = styled.div`
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
 `;
 
-export const ContainerListImage = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 20px;
-  margin: 0 -10px;
-`;
-
-export const Container = styled.div`
-  display: flex;
-`;
-
-export const List = styled.ul`
-  max-width: 25%;
-  list-style-type: none;
-  padding: 0;
-`;
-export const Listli = styled.li`
-  list-style-type: none;
-  flex-basis: calc(25% - 20px);
-  margin-bottom: 20px;
-`;
-export const ImageCard = styled.img`
-  object-fit: cover;
-  width: calc(50% - 10px);
-  height: 300px;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.05);
-  }
+export const Conein = styled.section`
+  background-color: aliceblue;
+  width: 100%;
+  height: 100%;
 `;
 
 export const SearchInput = styled.input`
@@ -83,13 +68,106 @@ export const BntSearch = styled.button`
   }
 `;
 export const WraperContainer = styled.div`
-  background: url('https://images.pexels.com/photos/109669/pexels-photo-109669.jpeg');
-  background-size: cover;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+export const Search = styled.div`
+  position: relative;
+  top: 0;
+  left: 0;
+`;
+
+export const LinkPoster = styled(Link)`
+  width: 100%;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+`;
+
+export const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+`;
+
+export const Listli = styled.li`
+  list-style-type: none;
+`;
+
+export const Card = styled.div`
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+export const Container = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+`;
+
+export const CardBack = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+`;
+
+export const CardFront = styled.p`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  ${Card}:hover & {
+    opacity: 1;
+  }
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  ${Card}:hover & {
+    opacity: 1;
+  }
+`;
+
+export const ImageCard = styled.img`
+  object-fit: cover;
   width: 100%;
   height: 100%;
 `;
