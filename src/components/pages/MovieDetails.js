@@ -10,6 +10,8 @@ import {
   ListItem,
   ListContainer,
   List,
+  HomeBtn,
+  LinkBtn,
 } from 'components/MovieDetalis/MovieDetails.style';
 import { useRef } from 'react';
 
@@ -28,7 +30,7 @@ const MovieDetails = () => {
       ) : (
         <div>
           <Link to={goHomePath}>
-            <button>Go Home</button>
+            <HomeBtn>Go Home</HomeBtn>
           </Link>
           <Card>
             <CardLeft>
@@ -61,10 +63,10 @@ const MovieDetails = () => {
         <ListContainer>
           <List>
             <ListItem>
-              <Link to="cast">Cast</Link>
+              <LinkBtn to="cast">Cast</LinkBtn>
             </ListItem>
             <ListItem>
-              <Link to="reviews">Reviews</Link>
+              <LinkBtn to="reviews">Reviews</LinkBtn>
             </ListItem>
           </List>
         </ListContainer>

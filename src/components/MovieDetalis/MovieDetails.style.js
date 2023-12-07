@@ -1,4 +1,23 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+export const HomeBtn = styled.button`
+  position: fixed;
+  top: 0;
+  right: 90%;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+
+  &:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+  }
+`;
 
 export const Card = styled.div`
   width: 800px;
@@ -97,5 +116,38 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  margin: 0;
+  margin: 12px;
+  height: 50px;
+  width: 120px;
+  border-radius: 10px;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
+    inset -5px -5px 10px #222;
+  font-family: 'Damion', cursive;
+  border: none;
+  font-size: 16px;
+  color: rgb(161, 161, 161);
+  transition: 500ms;
+
+  &:hover {
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222,
+      inset -5px -5px 10px #444;
+    color: #d6d6d6;
+    transition: 500ms;
+  }
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+`;
+
+export const LinkBtn = styled(Link)`
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
 `;
