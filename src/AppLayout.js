@@ -8,10 +8,7 @@ import {
   SliderMenuItem,
   Header,
   StyledLink,
-} from 'AppStyle';
-
-// import { useState } from 'react';
-// import { Loader } from 'components/Animations/LoadingSpiner';
+} from 'Styles/AppStyle';
 
 export const AppLayout = () => {
   return (
@@ -38,7 +35,3 @@ export const AppLayout = () => {
     </Container>
   );
 };
-// const [isLoading, setisLoading] = useState(false);
-// {
-//   isLoading && <Loader />;
-// }
